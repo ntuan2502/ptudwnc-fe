@@ -7,9 +7,6 @@ export default function Component() {
   return (
     <>
       <Nav />
-      <div className="flex justify-center items-center h-screen">
-        <img src="https://hcmus.edu.vn/images/logo81.png" />
-      </div>
     </>
   );
 }
