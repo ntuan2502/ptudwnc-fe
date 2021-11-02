@@ -266,12 +266,13 @@ function Table({ columns, data }) {
                 className="min-w-full divide-y divide-gray-200"
               >
                 <thead className="bg-gray-50">
-                  {headerGroups.map((headerGroup) => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                      {headerGroup.headers.map((column) => (
+                  {headerGroups.map((headerGroup, index) => (
+                    <tr key={index} {...headerGroup.getHeaderGroupProps()}>
+                      {headerGroup.headers.map((column, ind) => (
                         // Add the sorting props to control sorting. For this example
                         // we can add them into the header props
                         <th
+                          key={ind}
                           scope="col"
                           className="group px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                           {...column.getHeaderProps(
@@ -306,10 +307,11 @@ function Table({ columns, data }) {
                     // new
                     prepareRow(row);
                     return (
-                      <tr {...row.getRowProps()}>
-                        {row.cells.map((cell) => {
+                      <tr key={i} {...row.getRowProps()}>
+                        {row.cells.map((cell, id) => {
                           return (
                             <td
+                              key={id}
                               {...cell.getCellProps()}
                               className="px-6 py-4 whitespace-nowrap"
                               role="cell"
